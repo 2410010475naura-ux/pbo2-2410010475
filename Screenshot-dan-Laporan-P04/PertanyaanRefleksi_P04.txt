@@ -1,0 +1,21 @@
+Nama	: Naura Aulia Jahirah
+NPM	: 2410010475
+Kelas	: 5C REG BJM
+
+Pertanyaan Refleksi (Bagian G)
+
+1. Mengapa Null Layout dan Absolute Layout sebaiknya dihindari?
+Jawab: Keduanya harus dihindari karena menggunakan posisi piksel yang tetap, sehingga tampilan form tidak bisa menyesuaikan saat ukuran jendelanya diubah dan teksnya dapat terpotong pada skala layar yang berbeda. Selain itu, Absolute Layout membutuhkan library tambahan dari NetBeans sehingga aplikasinya akan sulit dijalankan jika dipindah ke komputer lain.   
+
+2. Jelaskan perbedaan perilaku FlowLayout dan GridLayout saat jendela dilebarkan.
+Jawab: Pada FlowLayout, ukuran komponen tetap dipertahankan sebesar ukuran aslinya, dan komponen hanya akan bergeser mengikuti ruang/akan pindah ke baris bawah jika ruang ke sampingnya tidak muat. Sedangkan pada GridLayout, semua sel/kolom akan dipaksa membagi ruang biar sama besar, sehingga jika jendela dilebarkan, semua komponen termasuk labelnya akan ikut melebar secara merata dan membuat tampilannya menjadi sangat berantakan atau terdorong jauh.   
+
+3. Apa fungsi Weight X dan Fill pada constraint GridBagLayout?
+Jawab:   Weight X, fungsinya untuk mengatur pembagian sisa lebar ruang pada baris. Kalo Fill fungsinya untuk mengatur apakah komponen harus membesar memenuhi seluruh area selnya. Misal jika disetel Horizontal, komponen akan memanjang ke samping kiri-kanan memenuhi sel.  
+
+4. Mengapa formPanel dibungkus isiPanel dan diletakkan di North?
+Jawab: Agar susunan baris isian form seperti Text Field dan Labelnya tetap rapi menempel di bagian atas layar saat pengguna menarik/meninggikan ukuran jendela ke bawah. Sifat BorderLayout.NORTH akan mempertahankan tinggi komponen sesuai aslinya, sehingga bagian yang kosong akan jatuh ke area tengah (Center).   
+
+5. Sebutkan dua prinsip desain yang Anda terapkan pada Form Anggota Perpustakaan dan tunjukkan buktinya.
+Jawab:   Prinsip Kedekatan: Isian form yang saling berkaitan dikelompokkan dan diberi judul bagian. Buktinya: Form dibagi menjadi kelompok "DATA DIRI" dan "KONTAK" dengan jarak (Insets) atas yang lebih besar sebagai pemisah.   Prinsip Keselarasan: Komponen sejajar sehingga mudah dibaca. Buktinya: Semua label berada di kiri dan kotak isian berada di kanan membentuk garis lurus yang rapi dari atas ke bawah berkat pengaturan koordinat di GridBagLayout.
+(Opsional/tambahan: Prinsip Urutan yang Wajar, dibuktikan dengan diletakkannya tombol utama "Daftar" di sudut kanan bawah).   
