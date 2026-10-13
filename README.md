@@ -44,3 +44,37 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 
 **3. Output Mode Gelap**
 ![Output Mode Gelap](Screenshot-dan-Laporan-P03/mode_gelap.png)
+
+---
+
+## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai
+
+**📝 Laporan & Refleksi:**
+* **Eksperimen P04:** [Baca Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
+* **Pertanyaan Refleksi P04:** [Baca Pertanyaan Refleksi P04](Screenshot-dan-Laporan-P04/PertanyaanRefleksi_P04.txt)
+
+**🎨 Sketsa & Rancangan:**
+**1. Sketsa**
+![Sketsa P04](Screenshot-dan-Laporan-P04/sketsa.jpeg)
+
+**2. Tabel Rancangan**
+| Bagian | Panel | Layout |
+| :--- | :--- | :--- |
+| Jendela | JFrame | BorderLayout |
+| Header | headerPanel | BoxLayout, Y Axis |
+| Isi form | isiPanel / formPanel | BorderLayout / GridBagLayout |
+| Tombol | tombolPanel | FlowLayout, Right |
+
+**📋 Tabel Penilaian / Saling Menilai:**
+![Tabel Penilaian P04](Screenshot-dan-Laporan-P04/tabel_penilaian.jpg)
+
+**📸 Bukti Hasil Eksekusi Program (Screenshot):**
+
+**1. Desain Form P04**
+![Desain P04](Screenshot-dan-Laporan-P04/design_P04.png)
+
+**2. Form Ukuran Awal**
+![Form Ukuran Awal](Screenshot-dan-Laporan-P04/form_ukuranAwal.png)
+
+**3. Form Saat Dilebarkan**
+![Form Dilebarkan](Screenshot-dan-Laporan-P04/form_dilebarkan.png)
