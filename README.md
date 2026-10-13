@@ -32,15 +32,15 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 ## 📌 Pertemuan 3 (P03): Komponen GUI
 
 **📝 Laporan Praktikum (Pertanyaan Refleksi):**
-[Klik di sini untuk membaca Pertanyaan Refleksi P03](p03-komponen-gui/PertanyaanRefleksi_P03.txt)
+[Klik di sini untuk membaca Pertanyaan Refleksi P03](Screenshot-dan-Laporan-P03/PertanyaanRefleksi_P03.txt)
 
 **📸 Bukti Hasil Eksekusi Program (Screenshot):**
 
 **1. Desain Form**
-![Desain Form](p03-komponen-gui/design_P04.png)
+![Desain Form](Screenshot-dan-Laporan-P03/design_P03.png)
 
 **2. Output Mode Terang**
-![Output Mode Terang](p03-komponen-gui/mode_terang.png)
+![Output Mode Terang](Screenshot-dan-Laporan-P03/mode_terang.png)
 
 **3. Output Mode Gelap**
-![Output Mode Gelap](p03-komponen-gui/mode_gelap.png)
+![Output Mode Gelap](Screenshot-dan-Laporan-P03/mode_gelap.png)
