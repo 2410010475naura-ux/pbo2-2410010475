@@ -53,6 +53,9 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 * **Eksperimen P04:** [Baca Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
 * **Pertanyaan Refleksi P04:** [Baca Pertanyaan Refleksi P04](Screenshot-dan-Laporan-P04/PertanyaanRefleksi_P04.txt)
 
+**Deklarasi Penggunaan AI:**
+Saya menggunakan alat AI (Google Gemini & chatgpt) sebagai asisten untuk membantu memahami pesan error pada kode program Java dan membantu merapikan komponen yang terlihat salah, serta untuk merapikan struktur dan format markdown pada dokumentasi file `README.md` ini.
+
 **🎨 Sketsa & Rancangan:**
 **1. Sketsa**
 ![Sketsa P04](Screenshot-dan-Laporan-P04/sketsa.jpeg)
