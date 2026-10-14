@@ -47,7 +47,7 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 
 ---
 
-## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai
+## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai 
 
 **📝 Laporan & Refleksi:**
 * **Eksperimen P04:** [Baca Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
@@ -68,7 +68,7 @@ Saya menggunakan alat AI (Google Gemini & chatgpt) sebagai asisten untuk membant
 | Isi form | isiPanel / formPanel | BorderLayout / GridBagLayout |
 | Tombol | tombolPanel | FlowLayout, Right |
 
-**📋 Tabel Penilaian / Saling Menilai:**
+**📋 Tabel Penilaian / Saling Menilai (dinilai oleh Nuriatun Syalma):**
 ![Tabel Penilaian P04](Screenshot-dan-Laporan-P04/tabel_penilaian.jpg)
 
 **📸 Bukti Hasil Eksekusi Program (Screenshot):**
