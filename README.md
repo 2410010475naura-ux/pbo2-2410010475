@@ -22,7 +22,7 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 ## 📌 Pertemuan 2 (P02): Perpustakaan Mini
 
 **📝 Laporan Praktikum:**
-[Klik di sini untuk membaca Laporan Eksperimen P02](Screenshot-dan-Laporan-P02/LaporanP02.txt)
+[Klik di sini untuk membaca Laporan Eksperimen P02](Screenshot-dan-Laporan-P02/EksperimenP02.txt)
 
 **📸 Bukti Hasil Eksekusi Program (Screenshot):**
 ![Output Perpustakaan Mini](Screenshot-dan-Laporan-P02/output_perpustakanmini.png)
