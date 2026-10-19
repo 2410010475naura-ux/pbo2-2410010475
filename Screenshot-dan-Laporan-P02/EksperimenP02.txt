@@ -1,0 +1,45 @@
+Nama  : Naura Aulia Jahirah
+
+NPM   : 2410010475
+
+Kelas : 5C REG BJM
+
+
+
+Eksperimen: lakukan satu per satu, amati hasilnya, lalu kembalikan kode seperti semula.
+
+
+
+1. Tambahkan baris Koleksi x = new Koleksi("X01", "Uji", 2026); di method main. Apa pesan error dari kompiler dan mengapa?
+
+Jawaban: 
+
+Jadi ada pesan errornya "Koleksi is abstract; cannot be instantiated.". Karena Class Koleksi bersifat abstract, sehingga tidak bisa diubah langsung menjadi objek (instantiated) menggunakan keyword new. Objek hanya bisa dibuat dari class turunannya yang konkrit seperti Buku atau Majalah.
+
+
+
+2. Pada kelas Buku, ubah nama method hitungDenda menjadi hitungdenda. Apa yang terjadi jika anotasi @Override ada, dan jika dihapus?
+
+Jawaban:
+
+- Jika @Override ada: Terjadi error kompilasi karena kompiler tidak menemukan method hitungdenda di class induk (Koleksi) atau interface (BisaDipinjam).
+
+- Jika @Override dihapus: Kode berhasil dikompilasi, tetapi method hitungdenda dianggap sebagai method baru yang terpisah. Akibatnya, method denda bawaan dari interface tidak ter-override dan perhitungan denda saat pengembalian barang tidak akan berfungsi sebagaimana mestinya.
+
+
+
+3. Tambahkan new Buku("B009", "", 2020, "Anonim"). Apa yang terjadi saat program dijalankan?
+
+Jawaban:
+
+Programnya langsung error (pemberitahuan exception) saat dijalankan, dengan pesan: "java.lang.IllegalArgumentException: Judul tidak boleh kosong". 
+
+Alasannya, karena di dalam class Koleksi, ada pengecekan perintah if (judul == null || judul.isBlank()). Perintah ini sengaja dipasang untuk mencegah adanya buku tanpa judul. Jadi saat kita mencoba mengisi judulnya dengan teks kosong "", program bakal langsung menolak dan memunculkan pesan error tersebut.
+
+
+
+4. Ubah private StatusKoleksi status menjadi public, lalu ubah status B002 langsung dari main menjadi TERSEDIA saat masih dipinjam. Aturan apa yang dilanggar?
+
+Jawaban:
+
+Aturan yang dilanggar adalah aturan Enkapsulasi (Encapsulation). Karena enkapsulasi melarang variabel/atribut diubah secara langsung dari luar kelas. Perubahan status seharusnya hanya boleh terjadi melalui method bisnis yang valid seperti pinjam() dan kembalikan().
