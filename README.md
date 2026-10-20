@@ -81,3 +81,34 @@ Saya menggunakan alat AI (Google Gemini & chatgpt) sebagai asisten untuk membant
 
 **3. Form Saat Dilebarkan**
 ![Form Dilebarkan](Screenshot-dan-Laporan-P04/form_dilebarkan.png)
+
+---
+
+## 📌 Pertemuan 5 (P05): Event Handling
+
+**📝 Laporan Praktikum:**
+[Klik di sini untuk membaca Laporan Eksperimen P05](Screenshot-dan-Laporan-P05/EksperimenP05.txt)
+
+**Deklarasi Penggunaan AI:**
+Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami konsep event handler, menangani pesan error/typo pada kode Java, serta membantu merapikan penulisan struktur dan format markdown pada dokumentasi file `README.md` ini.
+
+**🗺️ Peta Event Form Anggota Perpustakaan:**
+
+| Komponen | Menu Events | Aksi |
+| :--- | :--- | :--- |
+| Kotak centang setuju (`setujuCheck`) | Item -> itemStateChanged | Tombol Daftar hanya aktif jika dicentang |
+| Tombol Batal (`batalButton`) | Action -> actionPerformed | Kosongkan semua isian dan kembalikan fokus ke NPM |
+| Tombol Daftar (`daftarButton`) | Action -> actionPerformed | Tampilkan ringkasan data dengan JOptionPane |
+| Isian NPM (`npmField`) | Key -> keyReleased | Label kecil menampilkan jumlah digit NPM |
+| Form (`FormAnggotaPerpustakaan` di Navigator) | Window -> windowClosing | Minta konfirmasi sebelum aplikasi ditutup |
+
+**📸 Bukti Hasil Eksekusi Program (Screenshot):**
+
+**1. Properties Events Tombol Daftar**
+![Properties Events Tombol Daftar](Screenshot-dan-Laporan-P05/events_daftar.png)
+
+**2. Dialog Ringkasan Data**
+![Dialog Ringkasan](Screenshot-dan-Laporan-P05/layardialog_ringkasan.png)
+
+**3. Dialog Konfirmasi Keluar**
+![Dialog Konfirmasi Keluar](Screenshot-dan-Laporan-P05/layardialog_keluar.png)
