@@ -1,0 +1,34 @@
+Nama	: Naura Aulia Jahirah
+NPM	: 2410010475
+Kelas	: 5C Reg BJM
+
+===== PRAKTIKUM 3: KONVERSI SUHU ======
+1. Hapus pemeriksaan if (evt.getStateChange() == ItemEvent.SELECTED) dan tambahkan System.out.println("item berubah"); di dalam event handler. Berapa kali pesan tercetak setiap pilihan diganti?
+Jawab: Pesan tercetak 2 kali setiap kali pilihan diganti. Hal ini terjadi karena event itemStateChanged dipicu dua kali: pertama untuk status melepas/membatalkan pilihan lama (DESELECTED) dan kedua untuk status memilih pilihan baru (SELECTED).
+
+2. Di jendela Properties bagian Events, kosongkan event keyReleased pada celsiusField, lalu buat event keyPressed yang memanggil konversi(). Mengapa hasil yang tampil terlambat satu karakter?
+Jawab: Event keyPressed dipicu SEBELUM karakter baru selesai dimasukkan ke dalam komponen JTextField. Karenanya, saat method celsiusField.getText() dipanggil, teks yang terbaca masih berupa teks lama. Sebaliknya, event keyReleased dipicu SETELAH karakter baru selesai dimasukkan sehingga pembacaan teks menjadi pas dan akurat.
+
+3. Hapus blok try dan catch di method konversi, lalu ketik huruf pada isian. Apa yang muncul di jendela Output?
+Jawab:
+Di jendela Output akan muncul pesan kesalahan (exception) berupa java.lang.NumberFormatException. Hal ini terjadi karena method Double.parseDouble() tidak dapat mengonversi karakter huruf menjadi tipe data numerik double.
+
+------------------------------------------------------------------------------
+
+===== PRAKTIKUM 4: KALKULATOR SEDERHANA =====
+1. Buat event actionPerformed untuk kaliButton melalui Events tanpa menghapus lambda di konstruktor, lalu tambahkan System.out.println("kali"); di kedua tempat. Berapa kali pesan tercetak? Mengapa satu tombol sebaiknya hanya memakai satu cara?
+Jawab: Pesan tercetak 2 kali untuk setiap satu kali klik. Hal ini terjadi karena tombol mendaftarkan dua listener sekaligus (dari GUI Builder dan satu dari Lambda di konstruktor). Satu tombol sebaiknya hanya menggunakan satu cara agar actionnya tidak berjalan ganda (duplicate execution) yang dapat menyebabkan bug perhitungan berulang.
+
+2. Tambahkan tombol untuk sisa bagi (modulus). Apa saja yang diubah di tab Design dan di tab Source?
+Jawaban:
+- Tab Design: Ubah GridLayout pada operatorPanel dari 4 kolom menjadi 5 kolom (GridLayout 1 baris 5 kolom), lalu tambahkan satu JButton baru dengan teks '%' dan beri nama variabel modulusButton.
+- Tab Source:
+  a. Daftarkan event untuk modulusButton di konstruktor:
+        modulusButton.addActionListener(e -> hitung('%'));
+  b. Di method hitung(char operator), tambahkan penanganan pembagian nol:
+        if ((operator == '/' || operator == '%') && b == 0)
+  c. Di dalam ekspresi switch (operator), tambahkan cabang kasus:
+        case '%' -> a % b;
+
+3. Tekan tombol Hapus. Mengapa kursor langsung berada di isian pertama?
+Jawab: Karena di dalam method hapus(), terdapat baris perintah angka1Field.requestFocusInWindow(); yang secara eksplisit mengembalikan fokus kursor aktif kembali ke kotak input pertama (angka1Field).
