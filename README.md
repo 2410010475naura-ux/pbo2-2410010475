@@ -50,7 +50,7 @@ Berikut adalah lampiran hasil eksekusi program (screenshot) untuk pertemuan pert
 ## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai 
 
 **📝 Laporan & Refleksi:**
-* **Eksperimen P04:** [Baca Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
+* **Eksperimen P04:** [KLIK INI untuk membaca jawaban Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
 * **Pertanyaan Refleksi P04:** [Baca Pertanyaan Refleksi P04](Screenshot-dan-Laporan-P04/PertanyaanRefleksi_P04.txt)
 
 **Deklarasi Penggunaan AI:**
