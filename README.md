@@ -100,7 +100,7 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 | 2 | Klik tombol Klik saya | `MouseEvent` kursor masuk ke tombol, `ActionEvent` tombol diklik, kursor keluar dari tombol |
 | 3 | Centang lalu hapus centang Aktifkan fitur | `ItemEvent` kotak dicentang, kotak tidak dicentang |
 | 4 | Ganti pilihan dari Pagi menjadi Malam | `ItemEvent` memilih Malam |
-| 5 | Klik isian, lalu ketik kata "abc" | `FocusEvent` isian mendapat fokus, `KeyEvent` mengetik huruf a, huruf b, huruf c |
+| 5 | Klik isian, lalu ketik kata "abc" | `FocusEvent` isian mendapat fokus, `KeyEvent` mengetik huruf a, mengetik huruf b, mengetik huruf c |
 | 6 | Klik tombol setelah mengetik di isian | `FocusEvent` isian kehilangan fokus, `MouseEvent` kursor masuk ke tombol, `ActionEvent` tombol diklik |
 
 **🗺️ Peta Event Form Anggota Perpustakaan:**
