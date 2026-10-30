@@ -123,3 +123,28 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 
 **3. Dialog Konfirmasi Keluar**
 ![Dialog Konfirmasi Keluar](Screenshot-dan-Laporan-P05/layardialog_keluar.png)
+
+---
+
+## 📌 Pertemuan 6 (P06): Validasi Input
+
+**📝 Eksperimen:**
+1. Ketik huruf pada isian NPM. Apa yang terjadi dan baris mana di npmFieldKeyTyped yang menyebabkannya?
+- Jawaban: Huruf yang diketik tidak akan muncul atau masuk ke dalam kolom NPM (diabaikan). Baris kode yang menyebabkannya adalah `evt.consume();` di dalam method `npmFieldKeyTyped`, yang dipicu oleh kondisi jika karakter yang dimasukkan bukan digit angka (`!Character.isDigit(evt.getKeyChar())`) atau jika panjang teks sudah mencapai batas maksimal 10 digit.
+2. Isi email dengan siti@, lalu tekan Tab. Kapan pesan kesalahan muncul?
+- Jawaban: Pesan kesalahan (beserta garis merah) langsung muncul pada event `focusLost` ketika pengguna selesai mengetik dan berpindah fokus (menekan tombol Tab atau mengklik area lain) keluar dari kolom email, selama isi teks tidak kosong.
+
+3. Klik isian Nama tanpa mengetik, lalu tekan Tab. Mengapa tidak ada pesan kesalahan?
+- Jawaban: Karena pemeriksaan langsung (*immediate feedback*) menggunakan *event* `focusLost` diberi pengecekan kondisi `!textField.getText().isBlank()`. Kolom yang kosong dilewati saat pindah isian agar pengguna tidak langsung diteror pesan merah sebelum selesai mengisi form; isian kosong baru akan diperiksa secara menyeluruh saat tombol "Daftar" diklik.
+
+4. Centang persetujuan, lalu klik Daftar dengan form kosong. Isian mana yang mendapat fokus?
+- Jawaban: Isian pertama yang mengalami kesalahan validasi, yaitu kolom **NPM** (`npmField`), karena method `salah.get(0).requestFocusInWindow()` mengarahkan kursor otomatis ke elemen pertama di dalam daftar antrean kesalahan.
+
+5. Tekan tombol Alt bersama huruf N. Isian mana yang mendapat fokus, dan properti apa yang mengaturnya?
+- Jawaban: Fokus berpindah ke kolom **Nama Lengkap** (`namaLengkapField`). Properti yang mengaturnya adalah `displayedMnemonic` yang diset bernilai `'N'` pada label `namaLengkapLabel` yang dihubungkan dengan properti `labelFor`.
+
+6. Isi beberapa isian, lalu klik Batal dan pilih No. Apakah data tetap ada?
+- Jawaban: Ya, data tetap ada dan tidak terhapus. Kondisi `if (jawab != JOptionPane.YES_OPTION) return;` memastikan bahwa proses pengosongan form dibatalkan apabila pengguna memilih tombol 'No' pada dialog konfirmasi.
+
+**📝 Deklarasi Penggunaan AI:**
+- Alat AI yang dipakai: Gemini (Google)- Keperluan: Membantu proses debugging error pada kode Java Swing (FlatLaf), merapikan struktur method validasi, serta menyusun format jawaban eksperimen praktikum.
