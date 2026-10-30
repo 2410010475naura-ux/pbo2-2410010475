@@ -60,8 +60,8 @@ Jawab : FlatLightLaf.setup() harus dipanggil sebelum form dibuat untuk mengaktif
 ## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai 
 
 **📝 Laporan & Refleksi:**
-* **Eksperimen P04:** 
-Eksperimen Praktikum 2: Galeri Layout Manager
+**Eksperimen P04:** 
+* Eksperimen Praktikum 2: Galeri Layout Manager
 1. Pada flowPanel, ubah Alignment layout menjadi Center, lalu kecilkan jendela. Apa yang berubah? Baris mana di initComponents() yang ikut berubah?
 Jawab: Saat jendela layarnya dikecilkan, deretan tombol yang awalnya memanjang akan turun ke baris bawahnya, dan posisinya akan tetap merapat di tengah-tengah panel. Pada kode initComponents(), nilai parameter pengaturan layout-nya ikut berubah menjadi java.awt.FlowLayout.CENTER.   
 2. Pada gridPanel, ubah Rows menjadi 0 dan Columns menjadi 2. Berapa baris yang terbentuk dan mengapa?
@@ -69,7 +69,7 @@ Jawab: Akan terbentuk 5 baris. Pada GridLayout, jika rows diatur menjadi 0, juml
 3. Pada boxPanel, isi properti maximumSize keempat tombol dengan lebar 32767 dan tinggi sama dengan tinggi tombol. Bagaimana lebar tombol berubah? Tambahkan juga Vertical Strut dari kategori Swing Fillers di antara tombol.
 Jawab: Lebar keempat tombol tersebut akan merenggang secara maksimal memenuhi seluruh ruang kosong di panel dari ujung kiri ke kanan. Saat ditambahkan Vertical Strut, akan muncul jarak spasi vertical di antara tombol-tombol tersebut yang ukurannya tetap.   
 
-Eksperimen Praktikum 4: Form Biodata. 
+* Eksperimen Praktikum 4: Form Biodata. 
 1. Ubah Weight X pada namaField menjadi 0.0, lalu lebarkan jendela. Apa yang terjadi pada isian?
 Jawab: Saat jendela dilebarkan, ukuran kotak isian/text field-nya akan kaku dan tidak ikut memanjang ke sebelah kanan saat jendelanya ditarik pengguna.   
 2. Ubah Direction formPanel di dalam isiPanel dari North menjadi Center, lalu tinggikan jendela. Apa perbedaannya?
@@ -77,7 +77,19 @@ Jawab: Saat jendela ditarik memanjang ke bawah/ditinggikan, keseluruhan form isi
 3. Hapus baris setMinimumSize (getSize()) di konstruktor, lalu kecilkan jendela sekecil mungkin. Bagian mana yang rusak lebih dulu?
 Jawab: Jendela aplikasi menjadi bisa diciutkan/dikecilkan sekecil-kecilnya sampai habis. Bagian komponen yang akan rusak atau terpotong lebih dulu adalah komponen yang berada di pinggir batas kanan/isiannya dan bagian bawah seperti tombol panelnya.
 
-* **Pertanyaan Refleksi P04:** [Baca Pertanyaan Refleksi P04](Screenshot-dan-Laporan-P04/PertanyaanRefleksi_P04.txt)
+* **Pertanyaan Refleksi P04:**
+
+1. Mengapa Null Layout dan Absolute Layout sebaiknya dihindari?
+Jawab: Keduanya harus dihindari karena menggunakan posisi piksel yang tetap, sehingga tampilan form tidak bisa menyesuaikan saat ukuran jendelanya diubah dan teksnya dapat terpotong pada skala layar yang berbeda. Selain itu, Absolute Layout membutuhkan library tambahan dari NetBeans sehingga aplikasinya akan sulit dijalankan jika dipindah ke komputer lain.   
+2. Jelaskan perbedaan perilaku FlowLayout dan GridLayout saat jendela dilebarkan.
+Jawab: Pada FlowLayout, ukuran komponen tetap dipertahankan sebesar ukuran aslinya, dan komponen hanya akan bergeser mengikuti ruang/akan pindah ke baris bawah jika ruang ke sampingnya tidak muat. Sedangkan pada GridLayout, semua sel/kolom akan dipaksa membagi ruang biar sama besar, sehingga jika jendela dilebarkan, semua komponen termasuk labelnya akan ikut melebar secara merata dan membuat tampilannya menjadi sangat berantakan atau terdorong jauh.   
+3. Apa fungsi Weight X dan Fill pada constraint GridBagLayout?
+Jawab:   Weight X, fungsinya untuk mengatur pembagian sisa lebar ruang pada baris. Kalo Fill fungsinya untuk mengatur apakah komponen harus membesar memenuhi seluruh area selnya. Misal jika disetel Horizontal, komponen akan memanjang ke samping kiri-kanan memenuhi sel.  
+4. Mengapa formPanel dibungkus isiPanel dan diletakkan di North?
+Jawab: Agar susunan baris isian form seperti Text Field dan Labelnya tetap rapi menempel di bagian atas layar saat pengguna menarik/meninggikan ukuran jendela ke bawah. Sifat BorderLayout.NORTH akan mempertahankan tinggi komponen sesuai aslinya, sehingga bagian yang kosong akan jatuh ke area tengah (Center).   
+5. Sebutkan dua prinsip desain yang Anda terapkan pada Form Anggota Perpustakaan dan tunjukkan buktinya.
+Jawab:   Prinsip Kedekatan: Isian form yang saling berkaitan dikelompokkan dan diberi judul bagian. Buktinya: Form dibagi menjadi kelompok "DATA DIRI" dan "KONTAK" dengan jarak (Insets) atas yang lebih besar sebagai pemisah.   Prinsip Keselarasan: Komponen sejajar sehingga mudah dibaca. Buktinya: Semua label berada di kiri dan kotak isian berada di kanan membentuk garis lurus yang rapi dari atas ke bawah berkat pengaturan koordinat di GridBagLayout.
+(Opsional/tambahan: Prinsip Urutan yang Wajar, dibuktikan dengan diletakkannya tombol utama "Daftar" di sudut kanan bawah).  
 
 **Deklarasi Penggunaan AI:**
 Saya menggunakan alat AI (Google Gemini & chatgpt) sebagai asisten untuk membantu memahami pesan error pada kode program Java dan membantu merapikan komponen yang terlihat salah, serta untuk merapikan struktur dan format markdown pada dokumentasi file `README.md` ini.
