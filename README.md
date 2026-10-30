@@ -60,7 +60,23 @@ Jawab : FlatLightLaf.setup() harus dipanggil sebelum form dibuat untuk mengaktif
 ## 📌 Pertemuan 4 (P04): Form Lanjutan & Saling Menilai 
 
 **📝 Laporan & Refleksi:**
-* **Eksperimen P04:** [KLIK INI untuk membaca jawaban Eksperimen P04](Screenshot-dan-Laporan-P04/EksperimenP04.txt)
+* **Eksperimen P04:** 
+Eksperimen Praktikum 2: Galeri Layout Manager
+1. Pada flowPanel, ubah Alignment layout menjadi Center, lalu kecilkan jendela. Apa yang berubah? Baris mana di initComponents() yang ikut berubah?
+Jawab: Saat jendela layarnya dikecilkan, deretan tombol yang awalnya memanjang akan turun ke baris bawahnya, dan posisinya akan tetap merapat di tengah-tengah panel. Pada kode initComponents(), nilai parameter pengaturan layout-nya ikut berubah menjadi java.awt.FlowLayout.CENTER.   
+2. Pada gridPanel, ubah Rows menjadi 0 dan Columns menjadi 2. Berapa baris yang terbentuk dan mengapa?
+Jawab: Akan terbentuk 5 baris. Pada GridLayout, jika rows diatur menjadi 0, jumlah baris akan diatur secara otomatis tak terbatas menyesuaikan jumlah komponen. Karena terdapat 9 tombol dan kolomnya dibatasi maksimal 2, maka 9 dibagi 2 sama dengan 4,5 (dibulatkan keatas berarti jadi 5 baris).   
+3. Pada boxPanel, isi properti maximumSize keempat tombol dengan lebar 32767 dan tinggi sama dengan tinggi tombol. Bagaimana lebar tombol berubah? Tambahkan juga Vertical Strut dari kategori Swing Fillers di antara tombol.
+Jawab: Lebar keempat tombol tersebut akan merenggang secara maksimal memenuhi seluruh ruang kosong di panel dari ujung kiri ke kanan. Saat ditambahkan Vertical Strut, akan muncul jarak spasi vertical di antara tombol-tombol tersebut yang ukurannya tetap.   
+
+Eksperimen Praktikum 4: Form Biodata. 
+1. Ubah Weight X pada namaField menjadi 0.0, lalu lebarkan jendela. Apa yang terjadi pada isian?
+Jawab: Saat jendela dilebarkan, ukuran kotak isian/text field-nya akan kaku dan tidak ikut memanjang ke sebelah kanan saat jendelanya ditarik pengguna.   
+2. Ubah Direction formPanel di dalam isiPanel dari North menjadi Center, lalu tinggikan jendela. Apa perbedaannya?
+Jawab: Saat jendela ditarik memanjang ke bawah/ditinggikan, keseluruhan form isian tidak akan menempel rapi di bagian atas layar lagi. Formnya justru jadi renggang, mengambang, dan turun ke tengah-tengah jendela yang kosong.   
+3. Hapus baris setMinimumSize (getSize()) di konstruktor, lalu kecilkan jendela sekecil mungkin. Bagian mana yang rusak lebih dulu?
+Jawab: Jendela aplikasi menjadi bisa diciutkan/dikecilkan sekecil-kecilnya sampai habis. Bagian komponen yang akan rusak atau terpotong lebih dulu adalah komponen yang berada di pinggir batas kanan/isiannya dan bagian bawah seperti tombol panelnya.
+
 * **Pertanyaan Refleksi P04:** [Baca Pertanyaan Refleksi P04](Screenshot-dan-Laporan-P04/PertanyaanRefleksi_P04.txt)
 
 **Deklarasi Penggunaan AI:**
