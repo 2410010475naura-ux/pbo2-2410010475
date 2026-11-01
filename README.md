@@ -184,5 +184,22 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 6. Isi beberapa isian, lalu klik Batal dan pilih No. Apakah data tetap ada?
 - Jawaban: Ya, data tetap ada dan tidak terhapus. Kondisi `if (jawab != JOptionPane.YES_OPTION) return;` memastikan bahwa proses pengosongan form dibatalkan apabila pengguna memilih tombol 'No' pada dialog konfirmasi.
 
+**📝 Tabel per-review:**
+
+Nama peninjau: Nuriatun Syalma  Nama pemilik form: Naura Aulia Jahirah
+
+| No | Heuristik | Temuan | Skor 0-4 | Saran |
+|----|-----------|--------|----------|-------|
+| 1 | Visibilitas status sistem | Saat tombol "Daftar" diklik, muncul dialog "Pendaftaran berhasil" sehingga pengguna tahu data masuk. Ketika tombol "Daftar" diklik dengan isian form kosong, muncul informasi jumlah isian yang harus diisi, atau statusnya. | 0 | Pertahankan informasi status sistem agar pengguna tetap mengetahui hasil dari setiap tindakan. |
+| 2 | Kesesuaian dengan dunia nyata | Label dan tombol seperti "Daftar" dan "Batal" menggunakan bahasa yang mudah dipahami dan sesuai dengan kebiasaan pengguna. | 0 | Pertahankan penggunaan bahasa yang sederhana dan mudah dimengerti. |
+| 3 | Kendali dan kebebasan pengguna | Tombol "Batal" sudah dilengkapi konfirmasi agar data tidak hilang secara tidak sengaja. Akan tetapi, setelah pengguna memilih "No" pada dialog konfirmasi, fokus kursor tidak otomatis kembali ke kolom isian, sehingga pengguna harus klik manual memakai mouse. | 2 | Kembalikan fokus kursor secara otomatis ke kolom yang terakhir aktif menggunakan kode `requestFocusInWindow()`. |
+| 4 | Konsistensi dan standar | Ikon pada dua dialog konfirmasi tampak berbeda (konfirmasi keluar memakai ikon tanda tanya, sedangkan konfirmasi hapus memakai ikon peringatan) meskipun judulnya sama-sama "Konfirmasi". Selain itu, penulisan label "Program Studi" di form berbeda dengan di ringkasan sukses. | 1 | Samakan gaya ikon dialog konfirmasi yang sejenis dan rapikan penulisan label agar konsisten dari awal hingga akhir. |
+| 5 | Pencegahan kesalahan | Validasi input tidak berjalan, karena kolom isian nama masih bisa diisi angka. | 2 | Tambahkan validasi pada kolom Nama agar hanya menerima huruf dan spasi, sehingga angka tidak bisa dimasukkan. Pastikan validasi berjalan sebelum data disimpan. |
+| 6 | Mengenali, bukan mengingat | Label dan petunjuk pengisian terlihat jelas sehingga pengguna dapat mengetahui informasi yang perlu dimasukkan tanpa harus mengingat aturan pengisian. | 0 | Pertahankan petunjuk pengisian agar tetap mudah ditemukan dan dipahami. |
+| 7 | Fleksibilitas dan efisiensi | Navigasi menggunakan tombol Tab dan tombol keyboard lainnya berjalan dengan baik sehingga pengguna dapat mengisi form dengan lebih praktis. | 0 | Pertahankan fungsi navigasi keyboard agar proses pengisian tetap efisien. |
+| 8 | Desain estetis dan minimalis | Tampilan form terlihat rapi, mudah dibaca, dan memiliki jarak antarkomponen yang sesuai. Tidak ditemukan tulisan bertumpuk atau terpotong. | 0 | Pertahankan tata letak dan tampilan form agar tetap nyaman digunakan. |
+| 9 | Membantu memperbaiki kesalahan | Pesan kesalahan ditampilkan dengan jelas dan membantu pengguna mengetahui kesalahan serta cara memperbaiki input yang tidak sesuai. | 0 | Pertahankan pesan kesalahan yang informatif agar pengguna mudah memperbaiki kesalahan pengisian. |
+| 10 | Bantuan dan dokumentasi | Form menyediakan petunjuk pengisian melalui label atau tooltip sehingga pengguna dapat memahami aturan pengisian dengan lebih mudah. | 0 | Pertahankan petunjuk dan tooltip agar pengguna tetap terbantu saat mengisi form. |
+
 **📝 Deklarasi Penggunaan AI:**
 - Alat AI yang dipakai: Gemini (Google)- Keperluan: Membantu proses debugging error pada kode Java Swing (FlatLaf), merapikan struktur method validasi, serta menyusun format jawaban eksperimen praktikum.
