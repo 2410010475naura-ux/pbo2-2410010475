@@ -166,6 +166,14 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 
 ## 📌 Pertemuan 6 (P06): Validasi Input
 
+**📸 Bukti Hasil Eksekusi Program (Screenshot):**
+
+**1. Layar Form dengan Pesan Kesalahan**
+![Pesan Kesalahan](Screenshot-dan-Laporan-P06/pesan_kesalahan.png)
+
+**2. Jendela Navigator**
+![Jendela Navigator](Screenshot-dan-Laporan-P06/jendelanavigator.png)
+
 **📝 Eksperimen:**
 1. Ketik huruf pada isian NPM. Apa yang terjadi dan baris mana di npmFieldKeyTyped yang menyebabkannya?
 - Jawaban: Huruf yang diketik tidak akan muncul atau masuk ke dalam kolom NPM (diabaikan). Baris kode yang menyebabkannya adalah `evt.consume();` di dalam method `npmFieldKeyTyped`, yang dipicu oleh kondisi jika karakter yang dimasukkan bukan digit angka (`!Character.isDigit(evt.getKeyChar())`) atau jika panjang teks sudah mencapai batas maksimal 10 digit.
