@@ -188,6 +188,8 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 
 Nama peninjau: Nuriatun Syalma  Nama pemilik form: Naura Aulia Jahirah
 
+## Evaluasi Heuristik
+
 | No | Heuristik | Temuan | Skor 0-4 | Saran |
 |----|-----------|--------|----------|-------|
 | 1 | Visibilitas status sistem | Saat tombol "Daftar" diklik, muncul dialog "Pendaftaran berhasil" sehingga pengguna tahu data masuk. Ketika tombol "Daftar" diklik dengan isian form kosong, muncul informasi jumlah isian yang harus diisi, atau statusnya. | 0 | Pertahankan informasi status sistem agar pengguna tetap mengetahui hasil dari setiap tindakan. |
@@ -200,6 +202,14 @@ Nama peninjau: Nuriatun Syalma  Nama pemilik form: Naura Aulia Jahirah
 | 8 | Desain estetis dan minimalis | Tampilan form terlihat rapi, mudah dibaca, dan memiliki jarak antarkomponen yang sesuai. Tidak ditemukan tulisan bertumpuk atau terpotong. | 0 | Pertahankan tata letak dan tampilan form agar tetap nyaman digunakan. |
 | 9 | Membantu memperbaiki kesalahan | Pesan kesalahan ditampilkan dengan jelas dan membantu pengguna mengetahui kesalahan serta cara memperbaiki input yang tidak sesuai. | 0 | Pertahankan pesan kesalahan yang informatif agar pengguna mudah memperbaiki kesalahan pengisian. |
 | 10 | Bantuan dan dokumentasi | Form menyediakan petunjuk pengisian melalui label atau tooltip sehingga pengguna dapat memahami aturan pengisian dengan lebih mudah. | 0 | Pertahankan petunjuk dan tooltip agar pengguna tetap terbantu saat mengisi form. |
+
+## Tindak Lanjut Peer Review
+
+| No | Temuan dari Teman | Perbaikan yang Dilakukan | Commit |
+|----|-------------------|--------------------------|--------|
+| 3 | Setelah memilih "No" pada dialog konfirmasi tombol "Batal", fokus kursor tidak kembali ke kolom isian sehingga pengguna harus klik manual. | Menambahkan `requestFocusInWindow()` agar fokus otomatis kembali ke kolom isian yang terakhir aktif setelah dialog konfirmasi ditutup. | `<hash commit>` |
+| 4 | Ikon dialog konfirmasi tidak seragam (tanda tanya vs peringatan) dan penulisan label "Program Studi" di form berbeda dengan di ringkasan sukses. | Menyamakan ikon pada semua dialog konfirmasi dan menyeragamkan penulisan label "Program Studi" di form dan ringkasan. | `<hash commit>` |
+| 5 | Kolom Nama masih bisa diisi angka karena validasi input tidak berjalan. | Menambahkan validasi pada kolom Nama agar hanya menerima huruf dan spasi, dan memastikan validasi dijalankan sebelum data disimpan. | `<hash commit>` |
 
 **📝 Deklarasi Penggunaan AI:**
 - Alat AI yang dipakai: Gemini (Google)- Keperluan: Membantu proses debugging error pada kode Java Swing (FlatLaf), merapikan struktur method validasi, serta menyusun format jawaban eksperimen praktikum.
