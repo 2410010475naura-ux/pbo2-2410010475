@@ -221,3 +221,31 @@ Nama peninjau: Nuriatun Syalma  Nama pemilik form: Naura Aulia Jahirah
 
 **📝 Deklarasi Penggunaan AI:**
 - Alat AI yang dipakai: Gemini (Google)- Keperluan: Membantu proses debugging error pada kode Java Swing (FlatLaf), merapikan struktur method validasi, serta menyusun format jawaban eksperimen praktikum.
+
+---
+
+## 📌 Pertemuan 7 (P07): Tabel, Menu, dan Mini Proyek GUI 
+
+**📝 Eksperimen Praktikum 5 Tabel dan Menu**
+1. Di KontakTableModel, jadikan baris fireTableRowsInserted(baris, baris); sebagai komentar, lalu tambah kontak baru. Apakah tabel langsung berubah?
+Jawaban: Tabel tidak akan langsung berubah. Meskipun data sudah bertambah di dalam ArrayList pada model, JTable di layar tidak memperbarui tampilannya karena kehilangan perintah pemberitahuan (trigger) dari fireTableRowsInserted.
+
+2. Di method barisTerpilih, ganti isinya menjadi return kontakTable.getSelectedRow();. Cari kata "ah", pilih Ahmad Fauzi, lalu klik Hapus dan pilih No. Nama siapa yang muncul di dialog konfirmasi?
+Jawaban: Nama yang muncul akan salah (kemungkinan nama pada baris pertama di data awal). Method getSelectedRow() hanya mengambil indeks baris berdasarkan tampilan yang sedang di-filter. Agar sesuai dengan data asli saat difilter, wajib menggunakan convertRowIndexToModel().
+
+3. Di konstruktor DialogKontak, ubah super(pemilik, judul, true) menjadi false. Saat dialog terbuka, coba klik jendela utama. Apa yang terjadi pada kontak yang ditambahkan?
+Jawaban: Jendela utama bisa diklik kembali meskipun dialog masih terbuka. Mengubah parameter modal menjadi false membuat dialog menjadi modeless. Akibatnya, alur program tidak berhenti menunggu dialog ditutup, mengembalikan nilai null, dan gagal menambahkan kontak dengan benar.
+
+4. Tekan Ctrl+N, Ctrl+E, dan Ctrl+D. Mengapa Ctrl+E dan Ctrl+D tidak bekerja saat tidak ada baris yang dipilih?
+Jawaban: Karena tombol/menu Ubah (Ctrl+E) dan Hapus (Ctrl+D) dalam kondisi non-aktif (disabled). Pada method perbaruiTombol(), terdapat validasi yang menonaktifkan tombol-tombol tersebut jika getSelectedRow() < 0 (tidak ada baris yang diklik).
+
+5. Di tab Design, ubah accelerator hapusItem menjadi tombol Delete tanpa Ctrl. Baris apa yang berubah di initComponents()?
+Jawaban: Baris deklarasi tombol pintas (accelerator) pada hapusItem akan berubah. Kodenya di dalam initComponents() berubah dengan menghilangkan atribut Ctrl (InputEvent.CTRL_DOWN_MASK), menjadi seperti ini: hapusItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));.
+
+6. Ubah deklarasi atribut menjadi private KontakTableModel model; lalu isi model = new KontakTableModel(); setelah initComponents(). Jalankan. Pesan error apa yang muncul dan mengapa?
+Jawaban: Muncul pesan error NullPointerException. Hal ini terjadi karena di dalam method initComponents(), NetBeans mencoba memasang model ke dalam tabel (kontakTable.setModel(model);). Jika objek model baru diinisialisasi setelah initComponents(), maka saat tabel mencoba memanggilnya, variabel model tersebut masih bernilai null.
+
+**📝 Tautan video demo mini proyek Katalog Buku Perpustakaan:** https://drive.google.com/file/d/1QGF4AavfQbAfWns7EqE9zYJkBQtDWkaO/view?usp=drivesdk
+
+**📝 Deklarasi Penggunaan AI:**
+Dalam pengerjaan proyek ini, saya menggunakan bantuan AI (Gemini) sebatas sebagai rekan diskusi untuk membantu debugging error, memahami pesan kesalahan, dan merapikan dokumentasi. Seluruh logika inti, penyusunan antarmuka (GUI), dan penyelesaian akhir proyek tetap murni merupakan hasil pemahaman dan pengerjaan saya sendiri.
