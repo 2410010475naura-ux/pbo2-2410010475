@@ -172,7 +172,7 @@ Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami
 ![Pesan Kesalahan](Screenshot-dan-Laporan-P06/pesan_kesalahan.png)
 
 **2. Jendela Navigator**
-![Jendela Navigator](Screenshot-dan-Laporan-P06/jendela_navigatorp06.png)
+![Jendela Navigator](Screenshot-dan-Laporan-P06/jendelanavigator.png)
 
 **📝 Eksperimen:**
 1. Ketik huruf pada isian NPM. Apa yang terjadi dan baris mana di npmFieldKeyTyped yang menyebabkannya?
