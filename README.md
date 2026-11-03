@@ -125,7 +125,34 @@ Saya menggunakan alat AI (Google Gemini & chatgpt) sebagai asisten untuk membant
 ## 📌 Pertemuan 5 (P05): Event Handling
 
 **📝 Laporan Praktikum:**
-[Klik di sini untuk membaca Laporan Eksperimen P05](Screenshot-dan-Laporan-P05/EksperimenP05.txt)
+===== PRAKTIKUM 3: KONVERSI SUHU ======
+1. Hapus pemeriksaan if (evt.getStateChange() == ItemEvent.SELECTED) dan tambahkan System.out.println("item berubah"); di dalam event handler. Berapa kali pesan tercetak setiap pilihan diganti?
+Jawab: Pesan tercetak 2 kali setiap kali pilihan diganti. Hal ini terjadi karena event itemStateChanged dipicu dua kali: pertama untuk status melepas/membatalkan pilihan lama (DESELECTED) dan kedua untuk status memilih pilihan baru (SELECTED).
+
+2. Di jendela Properties bagian Events, kosongkan event keyReleased pada celsiusField, lalu buat event keyPressed yang memanggil konversi(). Mengapa hasil yang tampil terlambat satu karakter?
+Jawab: Event keyPressed dipicu SEBELUM karakter baru selesai dimasukkan ke dalam komponen JTextField. Karenanya, saat method celsiusField.getText() dipanggil, teks yang terbaca masih berupa teks lama. Sebaliknya, event keyReleased dipicu SETELAH karakter baru selesai dimasukkan sehingga pembacaan teks menjadi pas dan akurat.
+
+3. Hapus blok try dan catch di method konversi, lalu ketik huruf pada isian. Apa yang muncul di jendela Output?
+Jawab:
+Di jendela Output akan muncul pesan kesalahan (exception) berupa java.lang.NumberFormatException. Hal ini terjadi karena method Double.parseDouble() tidak dapat mengonversi karakter huruf menjadi tipe data numerik double.
+
+===== PRAKTIKUM 4: KALKULATOR SEDERHANA =====
+1. Buat event actionPerformed untuk kaliButton melalui Events tanpa menghapus lambda di konstruktor, lalu tambahkan System.out.println("kali"); di kedua tempat. Berapa kali pesan tercetak? Mengapa satu tombol sebaiknya hanya memakai satu cara?
+Jawab: Pesan tercetak 2 kali untuk setiap satu kali klik. Hal ini terjadi karena tombol mendaftarkan dua listener sekaligus (dari GUI Builder dan satu dari Lambda di konstruktor). Satu tombol sebaiknya hanya menggunakan satu cara agar actionnya tidak berjalan ganda (duplicate execution) yang dapat menyebabkan bug perhitungan berulang.
+
+2. Tambahkan tombol untuk sisa bagi (modulus). Apa saja yang diubah di tab Design dan di tab Source?
+Jawaban:
+- Tab Design: Ubah GridLayout pada operatorPanel dari 4 kolom menjadi 5 kolom (GridLayout 1 baris 5 kolom), lalu tambahkan satu JButton baru dengan teks '%' dan beri nama variabel modulusButton.
+- Tab Source:
+  a. Daftarkan event untuk modulusButton di konstruktor:
+        modulusButton.addActionListener(e -> hitung('%'));
+  b. Di method hitung(char operator), tambahkan penanganan pembagian nol:
+        if ((operator == '/' || operator == '%') && b == 0)
+  c. Di dalam ekspresi switch (operator), tambahkan cabang kasus:
+        case '%' -> a % b;
+
+3. Tekan tombol Hapus. Mengapa kursor langsung berada di isian pertama?
+Jawab: Karena di dalam method hapus(), terdapat baris perintah angka1Field.requestFocusInWindow(); yang secara eksplisit mengembalikan fokus kursor aktif kembali ke kotak input pertama (angka1Field).
 
 **Deklarasi Penggunaan AI:**
 Saya menggunakan alat AI (Google Gemini) sebagai asisten untuk membantu memahami konsep event handler, menangani pesan error/typo pada kode Java, serta membantu merapikan penulisan struktur dan format markdown pada dokumentasi file `README.md` ini.
@@ -221,3 +248,31 @@ Nama peninjau: Nuriatun Syalma  Nama pemilik form: Naura Aulia Jahirah
 
 **📝 Deklarasi Penggunaan AI:**
 - Alat AI yang dipakai: Gemini (Google)- Keperluan: Membantu proses debugging error pada kode Java Swing (FlatLaf), merapikan struktur method validasi, serta menyusun format jawaban eksperimen praktikum.
+
+---
+
+## 📌 Pertemuan 7 (P07): Tabel, Menu, dan Mini Proyek GUI 
+
+**📝 Eksperimen Praktikum 5 Tabel dan Menu**
+1. Di KontakTableModel, jadikan baris fireTableRowsInserted(baris, baris); sebagai komentar, lalu tambah kontak baru. Apakah tabel langsung berubah?
+Jawaban: Tabel tidak akan langsung berubah. Meskipun data sudah bertambah di dalam ArrayList pada model, JTable di layar tidak memperbarui tampilannya karena kehilangan perintah pemberitahuan (trigger) dari fireTableRowsInserted.
+
+2. Di method barisTerpilih, ganti isinya menjadi return kontakTable.getSelectedRow();. Cari kata "ah", pilih Ahmad Fauzi, lalu klik Hapus dan pilih No. Nama siapa yang muncul di dialog konfirmasi?
+Jawaban: Nama yang muncul akan salah (kemungkinan nama pada baris pertama di data awal). Method getSelectedRow() hanya mengambil indeks baris berdasarkan tampilan yang sedang di-filter. Agar sesuai dengan data asli saat difilter, wajib menggunakan convertRowIndexToModel().
+
+3. Di konstruktor DialogKontak, ubah super(pemilik, judul, true) menjadi false. Saat dialog terbuka, coba klik jendela utama. Apa yang terjadi pada kontak yang ditambahkan?
+Jawaban: Jendela utama bisa diklik kembali meskipun dialog masih terbuka. Mengubah parameter modal menjadi false membuat dialog menjadi modeless. Akibatnya, alur program tidak berhenti menunggu dialog ditutup, mengembalikan nilai null, dan gagal menambahkan kontak dengan benar.
+
+4. Tekan Ctrl+N, Ctrl+E, dan Ctrl+D. Mengapa Ctrl+E dan Ctrl+D tidak bekerja saat tidak ada baris yang dipilih?
+Jawaban: Karena tombol/menu Ubah (Ctrl+E) dan Hapus (Ctrl+D) dalam kondisi non-aktif (disabled). Pada method perbaruiTombol(), terdapat validasi yang menonaktifkan tombol-tombol tersebut jika getSelectedRow() < 0 (tidak ada baris yang diklik).
+
+5. Di tab Design, ubah accelerator hapusItem menjadi tombol Delete tanpa Ctrl. Baris apa yang berubah di initComponents()?
+Jawaban: Baris deklarasi tombol pintas (accelerator) pada hapusItem akan berubah. Kodenya di dalam initComponents() berubah dengan menghilangkan atribut Ctrl (InputEvent.CTRL_DOWN_MASK), menjadi seperti ini: hapusItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));.
+
+6. Ubah deklarasi atribut menjadi private KontakTableModel model; lalu isi model = new KontakTableModel(); setelah initComponents(). Jalankan. Pesan error apa yang muncul dan mengapa?
+Jawaban: Muncul pesan error NullPointerException. Hal ini terjadi karena di dalam method initComponents(), NetBeans mencoba memasang model ke dalam tabel (kontakTable.setModel(model);). Jika objek model baru diinisialisasi setelah initComponents(), maka saat tabel mencoba memanggilnya, variabel model tersebut masih bernilai null.
+
+**📝 Tautan video demo mini proyek Katalog Buku Perpustakaan:** https://drive.google.com/file/d/1QGF4AavfQbAfWns7EqE9zYJkBQtDWkaO/view?usp=drivesdk
+
+**📝 Deklarasi Penggunaan AI:**
+Dalam pengerjaan proyek ini, saya menggunakan bantuan AI (Gemini) sebatas sebagai rekan diskusi untuk membantu debugging error, memahami pesan kesalahan, dan merapikan dokumentasi. Seluruh logika inti, penyusunan antarmuka (GUI), dan penyelesaian akhir proyek tetap murni merupakan hasil pemahaman dan pengerjaan saya sendiri.
