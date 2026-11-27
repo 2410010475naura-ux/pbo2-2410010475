@@ -276,3 +276,31 @@ Jawaban: Muncul pesan error NullPointerException. Hal ini terjadi karena di dala
 
 **📝 Deklarasi Penggunaan AI:**
 Dalam pengerjaan proyek ini, saya menggunakan bantuan AI (Gemini) sebatas sebagai rekan diskusi untuk membantu debugging error, memahami pesan kesalahan, dan merapikan dokumentasi. Seluruh logika inti, penyusunan antarmuka (GUI), dan penyelesaian akhir proyek tetap murni merupakan hasil pemahaman dan pengerjaan saya sendiri.
+
+---
+
+## 📌 Pertemuan 10 (P10): MVC & DAO (SiPerpus)
+
+**📝 Eksperimen Praktikum 6**
+1. Ubah baris pembuatan DAO di `AplikasiBuku` dari `BukuDaoMemori.denganContoh()` menjadi `new BukuDaoMemori()`, lalu jalankan aplikasi. Apa yang tampil, dan kelas mana saja yang perlu diubah?
+Jawaban: Saat aplikasi dijalankan, tabel buku tampil **kosong** (0 baris) dan label status di bagian bawah menampilkan keterangan `"Menampilkan 0 buku"`. Kelas yang diubah hanya kelas `AplikasiBuku` (pada bagian inisialisasi objek `dao`). Kelas lain seperti `PanelBuku`, `BukuController`, dan `BukuTableModel` tidak perlu diubah karena ketergantungan datanya sudah dipisahkan melalui interface `BukuDao`.
+
+2. Coba tambahkan buku dengan kode `PBO-001` yang sudah ada. Bagaimana aplikasi merespons, dan bagaimana kondisi isian dialog setelah pesan kesalahan ditutup?
+Jawaban: Aplikasi menampilkan dialog pesan kesalahan (*error*) bahwa kode `PBO-001` sudah dipakai oleh buku lain. Kondisi isian dialog setelah pesan kesalahan ditutup, dialog Tambah Buku otomatis terbuka kembali dengan seluruh data isian sebelumnya tetap utuh (tidak terhapus), sehingga pengguna cukup memperbaiki bagian kode buku saja tanpa harus mengetik ulang judul, penulis, tahun terbit, dan stok.
+
+3. Andaikan pemanggilan `dao.hapus` dipindah ke `PanelBuku`. Kelas apa yang harus diimpor `PanelBuku`, dan mengapa itu melanggar pola MVC?
+Jawaban: Kelas yang harus diimpor `id.ac.uniska.pbo2.siperpus.dao.BukuDao` (serta memerlukan referensi objek `BukuDao` di dalam kelas `PanelBuku`). Alasan melanggar MVC adalah karena dalam arsitektur MVC, kelas View (`PanelBuku`) hanya bertugas menyusun komponen antarmuka dan menampilkan data, tanpa boleh mengetahui cara penyimpanan atau manipulasi data secara langsung. Jika `PanelBuku` memanggil `dao.hapus()`, tampilan menjadi terikat erat (*tightly coupled*) dengan lapisan akses data dan mengabaikan peran `BukuController` sebagai penghubung antara View dan Model/DAO.
+
+4. Andaikan pada interface `BukuDao` ditambahkan satu method baru, misalnya `List<Buku> stokHabis();`. Kelas mana yang langsung gagal dikompilasi dan mengapa?
+Jawaban: Kelas yang gagal dikompilasi:`BukuDaoMemori`. Karena `BukuDaoMemori` mengimplementasikan (`implements`) interface `BukuDao`, kelas tersebut wajib memberikan implementasi (*override*) untuk seluruh method abstrak yang dideklarasikan di dalam `BukuDao`.
+
+5. Andaikan diminta menambah tombol `Cetak` ke `tombolPanel` pada `PanelBuku` tanpa membuat event di GUI Builder. Kelas mana saja yang perlu diubah, dan mengapa penanganan kliknya diletakkan di sana bukan di `PanelBuku`?
+Jawaban: Kelas yang diubah: `PanelBuku` (menambahkan tombol ke desain dan menyediakan *getter* seperti `public JButton getCetakButton()`) serta **`BukuController`** (mendaftarkan `addActionListener` pada tombol tersebut dan menulis logika pencetakannya). Alasan penempatan: `PanelBuku` bertindak sebagai View yang bersifat pasif. Seluruh penanganan aksi pengguna (*event handling*) dan alur logika bisnis dipusatkan di `BukuController` agar pemisahan tanggung jawab pada arsitektur MVC tetap terjaga.
+
+**📝 Deklarasi Penggunaan AI:**
+Dalam pengerjaan tugas Praktikum Pemrograman Berorientasi Objek 2 (Pertemuan 10: MVC & DAO - SiPerpus) ini, saya menggunakan bantuan kecerdasan buatan (**Google Gemini**) sebagai pendamping belajar (*coding assistant*). 
+Adapun cakupan bantuan AI yang digunakan meliputi:
+1. Membantu memperbaiki kesalahan sintaks (*typo*) hasil penyalinan kode dari modul praktikum serta menyesuaikan penempatan struktur komponen di NetBeans GUI Builder (`PanelBuku`, `DialogBuku`, dan `JendelaBuku`).
+2. Membantu memecahkan kendala teknis (*troubleshooting*) saat proses kompilasi dan pemuatan komponen kustom di GUI Builder.
+3. Memberikan panduan pemahaman konsep arsitektur Model-View-Controller (MVC) dan Data Access Object (DAO) dalam menjawab pertanyaan analisis pada Eksperimen 6.
+Seluruh struktur proyek, perancangan antarmuka (GUI), pengujian fungsionalitas aplikasi, serta pengunggahan ke repository GitHub dilakukan dan dipahami secara mandiri oleh saya.
